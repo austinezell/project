@@ -1,14 +1,14 @@
+const path = require('path');
 module.exports = {
-  entry: "./src/app.js",
+  entry: './src/main.js',
   output: {
-    path: __dirname + '/dist/',
-    filename: "bundle.js"
+    path: path.resolve('dist'),
+    filename: 'index_bundle.js'
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /(node_modules\/|bower_components\/)/,
-      loader: 'babel?presets[]=es2015'
-    }]
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+    ]
   }
 };
